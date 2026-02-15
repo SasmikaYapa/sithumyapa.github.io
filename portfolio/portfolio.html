@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sithum Yapa | Corporate Portfolio</title>
+
+<style>
+:root{
+--primary:#0A3D62;      /* Deep Blue */
+--secondary:#1B4F72;    /* Soft Blue */
+--gold:#D4AF37;         /* Elegant Gold */
+--light:#EAF2F8;
+--text:#333;
+}
+
+/* ================= GLOBAL ================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:var(--light);
+color:var(--text);
+line-height:1.6;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:white;
+box-shadow:0 3px 12px rgba(0,0,0,0.05);
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+nav h2{
+color:var(--primary);
+font-weight:700;
+}
+
+nav h2 span{
+color:var(--gold); /* Gold only branding */
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+position:relative;
+transition:0.3s;
+}
+
+nav ul li a::after{
+content:"";
+position:absolute;
+bottom:-5px;
+left:0;
+width:0;
+height:2px;
+background:var(--primary);
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:var(--primary);
+}
+
+nav ul li a:hover::after{
+width:100%;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:40px;
+height:40px;
+border-radius:50%;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:120px 10% 80px;
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+color:white;
+position:relative;
+overflow:hidden;
+}
+
+/* subtle animated background overlay */
+.hero::before{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:rgba(212,175,55,0.08);
+border-radius:50%;
+top:-150px;
+right:-150px;
+filter:blur(80px);
+}
+
+.hero-left{
+flex:1;
+z-index:2;
+}
+
+.hero-left h4{
+color:var(--gold);
+margin-bottom:10px;
+letter-spacing:1px;
+font-weight:600;
+}
+
+.hero-left h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero-left h3{
+color:#e0e0e0;
+margin-bottom:10px;
+}
+
+.hero-left p{
+max-width:520px;
+color:#f0f0f0;
+margin-top:15px;
+}
+
+.hero-buttons{
+margin-top:30px;
+display:flex;
+gap:15px;
+}
+
+/* HERO BUTTONS */
+
+.btn-primary{
+background:var(--gold);
+color:var(--primary);
+padding:12px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(212,175,55,0.4);
+}
+
+.btn-primary:hover{
+background:white;
+transform:translateY(-3px);
+}
+
+.btn-outline{
+border:2px solid white;
+color:white;
+padding:10px 25px;
+border-radius:30px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn-outline:hover{
+background:var(--gold);
+color:var(--primary);
+border-color:var(--gold);
+}
+
+/* HERO IMAGE */
+
+.hero-right{
+flex:1;
+display:flex;
+justify-content:center;
+z-index:2;
+}
+
+.profile-circle{
+width:320px;
+height:320px;
+border-radius:50%;
+border:6px solid var(--gold); /* Gold on blue background */
+box-shadow:0 0 25px rgba(212,175,55,0.5);
+overflow:hidden;
+transition:0.4s;
+}
+
+.profile-circle:hover{
+transform:scale(1.05);
+}
+
+.profile-circle img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:opacity 0.8s ease-in-out;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+padding:100px 10%;
+}
+
+.section h2{
+text-align:center;
+margin-bottom:60px;
+color:var(--primary);
+font-size:28px;
+}
+
+/* ================= EDUCATION FIX ================= */
+
+.education-card{
+overflow:hidden;
+}
+
+.edu-image-wrapper{
+width:100%;
+height:220px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+border-bottom:2px solid var(--primary);
+}
+
+.edu-image-wrapper img{
+max-width:70%;
+max-height:160px;
+object-fit:contain;
+}
+
+/* Text styling */
+
+.edu-place{
+font-weight:500;
+margin:6px 0;
+}
+
+.edu-year{
+color:#666;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.edu-badge{
+display:inline-block;
+background:var(--primary);
+color:white;
+padding:6px 15px;
+border-radius:20px;
+font-size:13px;
+}
+
+/* ================= GRID CARDS ================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+overflow:hidden;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 18px 40px rgba(0,0,0,0.15);
+}
+
+.card img{
+width:100%;
+height:auto;
+display:block;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card-content h3{
+color:var(--primary);
+margin-bottom:8px;
+}
+
+/* ================= SKILL TAGS ================= */
+
+.skills-category{
+margin-bottom:50px;
+}
+
+.skills-category h3{
+color:var(--primary);
+margin-bottom:20px;
+}
+
+.skill-tags{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.skill-tags span{
+padding:10px 20px;
+background:white;
+border-radius:30px;
+border:1px solid rgba(0,0,0,0.1);
+box-shadow:0 3px 8px rgba(0,0,0,0.05);
+font-size:14px;
+transition:0.3s;
+}
+
+.skill-tags span:hover{
+background:var(--primary);
+color:white;
+cursor:pointer;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+position:relative;
+margin-left:20px;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:0;
+width:4px;
+height:100%;
+background:var(--primary);
+}
+
+.timeline-item{
+margin-left:30px;
+margin-bottom:40px;
+position:relative;
+}
+
+.timeline-item::before{
+content:"";
+position:absolute;
+left:-38px;
+top:6px;
+width:14px;
+height:14px;
+background:var(--primary);
+border-radius:50%;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-container{
+display:flex;
+justify-content:space-between;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.contact-info{
+flex:1;
+line-height:2;
+}
+
+.contact-info a{
+color:var(--primary);
+text-decoration:none;
+font-weight:500;
+}
+
+.contact-info a:hover{
+text-decoration:underline;
+}
+
+.contact-form{
+flex:1;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:15px;
+border-radius:10px;
+border:1px solid rgba(0,0,0,0.1);
+outline:none;
+}
+
+.contact-form textarea{
+resize:none;
+height:120px;
+}
+
+.contact-form button{
+padding:15px;
+background:var(--primary);
+color:white;
+border:none;
+border-radius:30px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.contact-form button:hover{
+background:var(--secondary);
+}
+
+/* ================= FOOTER ================= */
+
+/* ================= FOOTER ================= */
+
+footer{
+background:var(--primary);
+color:white;
+padding:40px 10%;
+text-align:center;
+}
+
+.footer-container{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:15px;
+}
+
+.footer-logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.footer-logo img{
+width:45px;
+height:45px;
+border-radius:50%;
+border:2px solid var(--gold); /* Gold used on blue background only */
+}
+
+.footer-logo h3{
+color:white;
+font-weight:600;
+}
+
+.footer-logo span{
+color:var(--gold); /* subtle gold accent */
+}
+
+.footer-text{
+font-size:14px;
+opacity:0.9;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-right{
+margin-top:40px;
+}
+
+.hero-left h1{
+font-size:32px;
+}
+
+.profile-circle{
+width:240px;
+height:240px;
+}
+
+.contact-container{
+flex-direction:column;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">
+<img src="./Images/logo.png" alt="Sithum Logo">
+<h2>Sithum <span>Yapa</span></h2>
+</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#leadership">Leadership</a></li>
+<li><a href="#achievements">Achievements</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+<div class="hero-left">
+<h4>Hello, I'm</h4>
+<h1>Sithum Sasmika Yapa</h1>
+<h3>Aspiring AI/ML Engineer</h3>
+<p>
+Data Science & Business Analytics Undergraduate passionate about building intelligent systems
+and solving real-world problems using data.
+</p>
+
+<div class="hero-buttons">
+<a href="#contact" class="btn-primary">Contact Me</a>
+<a href="CV_Sithum (5).pdf" download class="btn-outline">Download CV</a>
+</div>
+</div>
+
+<div class="hero-right">
+<div class="profile-circle">
+<img id="profileImage" src="./Images/profile.png">
+</div>
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+<h2>Projects</h2>
+<div class="grid">
+<div class="card">
+<img src="./Images/skillmatch.jpg">
+<div class="card-content">
+<h3>SkillMatch</h3>
+<p>AI-powered student-industry matching platform.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="./Images/cropnext.jpg">
+<div class="card-content">
+<h3>CropNext</h3>
+<p>Machine learning harvest forecasting system.</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="./Images/quickjob.jpg">
+<div class="card-content">
+<h3>Quick Job</h3>
+<p>Smart job matching platform connecting students and part-time opportunities using intelligent filtering.</p>
+</div>
+</div>
+</div>
+
+</section>
+
+<section id="leadership" class="section">
+<h2>Leadership Experience</h2>
+
+<div class="grid">
+
+<!-- G17 -->
+<div class="card">
+<img src="./Images/g17.jpg">
+<div class="card-content">
+<h3>G17 Ambassador</h3>
+<p>
+Led sustainability-driven initiatives under the G17 movement, focusing on student engagement 
+and SDG-based impact programs.
+</p>
+</div>
+</div>
+
+<!-- ENVISION -->
+<div class="card">
+<img src="./Images/envision.jpg">
+<div class="card-content">
+<h3>Event Chair – ENVISION</h3>
+<p>
+Directed full-scale coordination and execution of ENVISION, managing teams, logistics, 
+technical sessions, and stakeholder communication.
+</p>
+</div>
+</div>
+
+<!-- OREPA -->
+<div class="card">
+<img src="./Images/orepa.png">
+<div class="card-content">
+<h3>Joint Editor – OREPA Newsletter</h3>
+<p>
+Oversaw editorial workflow, content review, and publication management
+for the official OREPA student newsletter.
+</p>
+
+<a href="OREPA.pdf" target="_blank" class="btn-outline" style="margin-top:15px; display:inline-block;">
+View Newsletter
+</a>
+
+
+</div>
+</div>
+
+
+</div>
+</section>
+
+<section id="achievements" class="section">
+<h2>Achievements</h2>
+
+<div class="grid">
+
+<!-- IEEE XTREME -->
+<div class="card achievement-card">
+<img src="./Images/xtreme18.jpg">
+<div class="card-content">
+<h3>IEEE Xtreme 18.0</h3>
+<span class="badge">Global Rank 672 | Country Rank 51</span>
+<p>
+Competed in the 24-hour global programming competition representing university level excellence.
+</p>
+</div>
+</div>
+
+<!-- CODEJAM -->
+<div class="card achievement-card">
+<img src="./Images/codejam.jpg">
+<div class="card-content">
+<h3>CodeJam – DataCrunch</h3>
+<span class="badge">4th Place – Grand Finale</span>
+<p>
+Finalist in competitive data analytics challenge demonstrating strong ML and problem-solving skills.
+</p>
+</div>
+</div>
+
+<!-- DEANS LIST -->
+<div class="card achievement-card">
+<img src="./Images/deanlist.jpg">
+<div class="card-content">
+<h3>Dean’s List 2023</h3>
+<span class="badge">Academic Excellence</span>
+<p>
+Recognized for outstanding academic performance and consistent high GPA achievement.
+</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="skills" class="section">
+<h2>Skills & Expertise</h2>
+
+<div class="skills-category">
+<h3>Programming & Data</h3>
+<div class="skill-tags">
+<span>Python</span>
+<span>R</span>
+<span>SQL</span>
+<span>Java</span>
+<span>C++</span>
+<span>NumPy</span>
+<span>Pandas</span>
+</div>
+</div>
+
+<div class="skills-category">
+<h3>Machine Learning & AI</h3>
+<div class="skill-tags">
+<span>Supervised Learning</span>
+<span>Unsupervised Learning</span>
+<span>Deep Learning</span>
+<span>Neural Networks</span>
+<span>Predictive Modelling</span>
+<span>Model Evaluation</span>
+</div>
+</div>
+
+
+<div class="skills-category">
+<h3>Tools & Platforms</h3>
+<div class="skill-tags">
+<span>Jupyter Notebook</span>
+<span>Power BI</span>
+<span>Git & GitHub</span>
+</div>
+</div>
+
+</section>
+
+<section id="education" class="section">
+<h2>Education</h2>
+
+<div class="grid">
+
+<!-- KDU -->
+<div class="card education-card">
+
+<div class="edu-image-wrapper">
+<img src="./Images/kdu.png" alt="KDU Logo">
+</div>
+
+<div class="card-content">
+<h3>BSc (Hons) in Data Science & Business Analytics</h3>
+<p class="edu-place">
+General Sir John Kotelawala Defence University
+</p>
+<p class="edu-year">2022 – Present</p>
+<span class="edu-badge">Undergraduate</span>
+</div>
+
+</div>
+
+
+<!-- Royal College -->
+<div class="card education-card">
+
+<div class="edu-image-wrapper">
+<img src="./Images/RoyalCrest.png" alt="Royal College Crest">
+</div>
+
+<div class="card-content">
+<h3>G.C.E. Advanced Level & Ordinary Level</h3>
+<p class="edu-place">
+Royal College Colombo 07
+</p>
+<p class="edu-year">2008 – 2022</p>
+<span class="edu-badge">School Education</span>
+</div>
+
+</div>
+
+
+</div>
+</section>
+
+
+<section id="contact" class="section">
+<h2>Get In Touch</h2>
+
+<div class="contact-container">
+
+<!-- LEFT SIDE -->
+<div class="contact-info">
+<p>📧 
+<a href="mailto:yapasithum@gmail.com">
+yapasithum@gmail.com
+</a>
+</p>
+
+<p>🔗 
+<a href="https://www.linkedin.com/in/sithum-yapa-869109269" target="_blank">
+LinkedIn Profile
+</a>
+</p>
+
+<p>💻 
+<a href="https://github.com/SasmikaYapa" target="_blank">
+GitHub Profile
+</a>
+</p>
+
+<p>🌐 
+<a href="https://yourportfolio.com" target="_blank">
+Portfolio Website
+</a>
+</p>
+</div>
+
+
+<!-- RIGHT SIDE -->
+<div class="contact-form">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</div>
+
+</div>
+</section>
+
+
+
+<footer>
+<div class="footer-container">
+
+<div class="footer-logo">
+<img src="./Images/logo.png" alt="Sithum Logo">
+<h3>Sithum <span>Yapa</span></h3>
+</div>
+
+<p class="footer-text">
+© 2026 Sithum Yapa. All Rights Reserved.
+</p>
+
+</div>
+</footer>
+
+<script>
+/* Skill Animation */
+function animateSkills(){
+document.querySelectorAll(".skill-fill").forEach(skill=>{
+let rect=skill.getBoundingClientRect();
+if(rect.top<window.innerHeight-100){
+skill.style.width=skill.getAttribute("data-width");
+}
+});
+}
+window.addEventListener("scroll",animateSkills);
+
+/* PROFILE IMAGE SLIDER */
+const profileImages = [
+"./Images/profile.png",
+"./Images/profile2.png",
+"./Images/profile3.jpg"
+];
+
+let profileIndex = 0;
+const profileElement = document.getElementById("profileImage");
+
+setInterval(()=>{
+profileElement.style.opacity = 0;
+
+setTimeout(()=>{
+profileIndex = (profileIndex + 1) % profileImages.length;
+profileElement.src = profileImages[profileIndex];
+profileElement.style.opacity = 1;
+},800);
+
+},4000);
+</script>
+
+</body>
+</html>
